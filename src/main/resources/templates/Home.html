@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>eDeliverHOME</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="" th:href="@{/css/Navigation.css}" />
+	<link rel="stylesheet" href="" th:href="@{css/Home.css}" />
+
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+		}
+
+		.text {
+			text-align: center;
+			padding: 2rem;
+		}
+
+		h1 {
+			font-size: 2.5rem;
+			color: var(--primary-color);
+		}
+
+		h3 {
+			font-size: 1.5rem;
+			color: var(--secondary-color);
+			margin-top: 1rem;
+		}
+
+		.background {
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			/*overflow: hidden;*/
+		}
+
+		video {
+			position: absolute;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		h2 {
+			font-size: 2rem;
+			color: var(--primary-color);
+			margin-top: 3rem;
+		}
+
+		p {
+			font-size: 1.2rem;
+			color: var(--secondary-color);
+			margin-top: 1rem;
+			line-height: 1.5;
+		}
+
+		ul {
+			list-style-type: disc;
+			margin-left: 2rem;
+		}
+
+		.product-image {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.product-name {
+			font-size: 1.8rem;
+			color: var(--primary-color);
+			margin-top: 1rem;
+		}
+
+		.food-cards {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin-top: 3rem;
+		}
+
+		.food-card {
+			width: 30%;
+			margin-bottom: 2rem;
+			border: 1px solid #ccc;
+			border-radius: 8px;
+			/*padding: 1rem;*/
+			text-align: center;
+			background-color: #fff;
+		}
+
+		.food-card img {
+			max-width: 100%;
+			object-fit: cover;
+			height: 250px;
+			width: 500px;
+		}
+	</style>
+</head>
+
+<body>
+<nav th:replace="~{Navigation::navbar()}"></nav>
+<section>
+	<div class="container">
+		<h2>Introducing eDeliver</h2>
+<!--		<img class="product-image" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2960&q=80" alt="eDeliver Product Image">-->
+		<p>In today's fast-paced world, preparing a delicious and nutritious meal can be a challenge. That's why we're excited to introduce you to our flagship product, eDeliver – your ultimate solution for modern dining.</p>
+		<p>With eDeliver, you'll experience a world of culinary delights, featuring a diverse menu that caters to every palate:</p>
+		<ul>
+			<li>Fast &amp; Flavorful: Quick and delicious meals that arrive at your doorstep in no time.</li>
+			<li>Mediterranean Marvels: Savor the flavors of the Mediterranean with our exquisite dishes.</li>
+			<li>Taste of India: Indulge in the rich and aromatic cuisines of India.</li>
+			<li>Chinese Classics: Experience the authentic taste of China with our mouthwatering offerings.</li>
+		</ul>
+		<p>What sets eDeliver apart:</p>
+		<ul>
+			<li>Unparalleled Variety: Choose from a wide range of menu options, tailored to your preferences.</li>
+			<li>Nationwide Delivery: We deliver to your doorstep, wherever you are in the USA.</li>
+			<li>Exceptional User Experience: Our commitment to quality extends to your online dining experience.</li>
+		</ul>
+		<p class="product-name">Experience the future of dining with eDeliver!</p>
+	</div>
+</section>
+
+<section>
+	<h2>Featured Food Items</h2>
+	<div class="food-cards">
+		<div class="food-card">
+			<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80" alt="Food Item 1">
+			<h3>Delicious Pizza</h3>
+			<p>Satisfy your cravings with our mouthwatering pizzas.</p>
+		</div>
+		<div class="food-card">
+			<img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2864&q=80" alt="Food Item 2">
+			<h3>Fresh Mediterranean Salad</h3>
+			<p>Enjoy a healthy and flavorful salad with Mediterranean goodness.</p>
+		</div>
+		<div class="food-card">
+			<img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2597&q=80" alt="Food Item 3">
+			<h3>Spicy Indian Curry</h3>
+			<p>Experience the rich and aromatic flavors of Indian cuisine.</p>
+		</div>
+	</div>
+</section>
+</body>
+
+</html>

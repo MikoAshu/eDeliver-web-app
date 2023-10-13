@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>eDeliverPRODUCTS</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="path/to/Navigation.css">
+	<link rel="stylesheet" href="path/to/Products.css">
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.row1 {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			padding: 20px;
+		}
+
+		.p1 {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			margin: 20px;
+			padding: 20px;
+			text-align: center;
+			width: 300px;
+		}
+
+		.p1 img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.p1 h4 {
+			color: var(--primary-color);
+			margin: 10px 0;
+		}
+
+		#buy {
+			background-color: var(--secondary-color);
+			color: white;
+			padding: 10px 20px;
+			text-decoration: none;
+			border-radius: 5px;
+			display: inline-block;
+			margin-top: 10px;
+			transition: background-color 0.3s;
+		}
+
+		#buy:hover {
+			background-color: var(--accent-color);
+		}
+	</style>
+</head>
+
+<body>
+<nav th:replace="~{Navigation::navbar()}"></nav>
+<section class="row1" th:each="s: ${products}">
+	<div class="p1">
+		<img src="/Images/eDeliver.png" alt="teaImage" />
+		<h4>Name : <span th:text="${s.pname}"></span></h4>
+		<h4>Price : <span th:text="'$ '+${s.pprice}"></span></h4>
+		<a href="/login" id="buy">Buy Now</a><br />
+	</div>
+</section>
+<script>
+	document.getElementById("buy").addEventListener("click", function () {
+		alert("Please Login as a User to buy Products")
+	});
+</script>
+</body>
+
+</html>
