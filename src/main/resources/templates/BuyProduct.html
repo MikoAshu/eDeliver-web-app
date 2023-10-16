@@ -129,6 +129,8 @@
 	<center>
 		<form action="" th:action="@{/product/search}" method="post" class="searchInput">
 			<input type="text" name="productName" required placeholder="Please enter the Product Name....">
+			<h1>Product Search :</h1>
+			<input type="text" name="productName">
 			<button type="submit">SEARCH</button><br />
 			<smal style="color: red;" th:text="${message}"> </smal>
 		</form>
@@ -139,11 +141,44 @@
 				<input type="text" value="" name="oName" th:value="${product.pname}" readonly /><br />
 				Product Price :
 				<input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
-				Quqntity :
+				Quantity :
+				<input type="number" placeholder="Minimun: 1KG" min="1" name="oQuantity" /><br />
+
+				<button type="submit">Order_Now</button>
+				Quantity :
 				<input type="number" placeholder="Minimum: 1KG" min="1" name="oQuantity" /><br />
 				<button type="submit">Order Now</button>
 			</form>
 		</div>
+
+		<div th:if="${products!=null}" class="details">
+			<h2>Products in db :</h2>
+			<table >
+				<tr>
+
+					<th>Product_Name</th>
+					<th>Product_Price</th>
+					<th>Product_Quantity</th>
+					<th>Actions</th>
+				</tr>
+				<tr th:each="product :${products}">
+					<td th:text="${product.pname}"></td>
+					<td th:text="${product.pprice}"></td>
+					<td>
+						<form action="" th:action="@{/product/order}" th:object="${product}" method="post">
+							<input type="hidden" value="" name="oName" th:value="${product.pname}" />
+							<input type="hidden" value="" name="oPrice" th:value="${product.pprice}" />
+							<input type="number" placeholder="Minimun: 1KG" min="1" name="oQuantity" />
+					</td>
+					<td>
+						<button type="submit">Order_Now</button>
+						</form>
+					</td>
+
+				</tr>
+			</table>
+		</div>
+
 
 		<div th:if="${orders!=null}" class="details">
 			<h2>Your Orders :</h2>
