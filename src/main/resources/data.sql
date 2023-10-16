@@ -23,3 +23,29 @@ values ('deboned chicken meat that is breaded or battered, then deep-fried for a
        ('a sweet and sticky Asian dish made with chicken, sauce, and sesame seeds', 'Sesame Chicken', 10.49),
        ('a traditional Italian dish made with layers of pasta, sauce, and cheese', 'Lasagna', 11.49),
        ('a refreshing beverage made from crushed ice and flavored syrup', 'Snow Cone', 3.99);
+
+create table user
+(
+    u_id      int auto_increment
+        primary key,
+    uemail    varchar(255) null,
+    uname     varchar(255) null,
+    unumber   bigint       null,
+    upassword varchar(255) null
+);
+
+insert into user (uemail, uname, unumber, upassword)
+values ('user@user.com', 'user', 1, 'user');
+
+create table admin
+(
+    admin_id       int auto_increment
+        primary key,
+    admin_email    varchar(255) null,
+    admin_name     varchar(255) null,
+    admin_number   varchar(255) null,
+    admin_password varchar(255) null
+);
+
+insert into admin (admin_email, admin_name, admin_number, admin_password)
+values ('admin@admin.com', 'admin', '1', 'admin');

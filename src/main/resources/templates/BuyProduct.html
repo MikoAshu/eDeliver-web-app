@@ -7,32 +7,67 @@
 	<link rel="stylesheet" href="" />
 </head>
 <style>
+	:root {
+		--primary-color: #27374D;
+		--secondary-color: #526D82;
+		--accent-color: #9DB2BF;
+		--background-color: #DDE6ED;
+	}
+
 	body {
-		background-color: green;
+		background-color: var(--background-color);
+		margin: 0;
+		padding: 0;
 	}
 
 	* {
-		font-size: 16px;
-		font-family: sans-serif;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 20px;
+		background-color: white;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+		border-radius: 5px;
+	}
+
+	.header {
+		background-color: var(--primary-color);
+		color: white;
+		padding: 20px;
+		text-align: center;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	}
 
 	.searchInput {
 		margin-top: 30px;
+		text-align: center;
 	}
 
 	.searchInput input {
 		padding: 15px;
 		width: 270px;
+		border: none;
+		border-radius: 5px;
+		margin-right: 10px;
 	}
 
 	.searchInput button {
-		padding: 15px;
-		width: 100px;
-		background-color: red;
+		padding: 15px 20px;
+		background-color: var(--primary-color);
+		color: white;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
 	}
 
 	.details {
 		margin-top: 70px;
+		text-align: center;
 	}
 
 	.details input,
@@ -40,58 +75,64 @@
 		display: block;
 		padding: 5px;
 		font-size: 16px;
-		
-
+		margin: 10px auto;
+		border: none;
+		border-radius: 5px;
 	}
 
 	a {
 		border: 1px solid black;
-		background-color: darkgoldenrod;
+		background-color: var(--accent-color);
 		color: black;
 		text-decoration: none;
 		padding: 7px;
 		width: 50px;
 		position: fixed;
+		top: 20px;
+		left: 20px;
+		border-radius: 5px;
 	}
-	.details th{
-		background-color: dimgray;
+
+	.details th {
+		background-color: var(--secondary-color);
 		font-family: sans-serif;
 		padding: 10px;
 		border: none;
-	
+		color: white;
 	}
-	td{
+
+	td {
 		text-align: center;
 		border-bottom: 1px solid lightslategrey;
 	}
-	.welcome marquee,.welcome span
-	{
-		
+
+	.welcome marquee,
+	.welcome span {
 		width: 50%;
 		font-size: 20px;
 		font-family: sans-serif;
 		color: lavender;
 	}
-	
+
 </style>
 
 <body>
-	<div class="welcome">
-			<marquee direction="right"  behaviour="slide" 
-			scrollamount="15" loop="1">Welcome Back <span  th:text="${name}"></span>
-			</marquee><br />
-	</div>
-	
-	<a href="/login">Back</a>
-	<center>
+<div class="welcome">
+	<marquee direction="right" behaviour="slide" scrollamount="15" loop="1">Welcome Back <span th:text="${name}"></span></marquee><br />
+</div>
 
+<a href="/login">Back</a>
+<div class="container">
+	<div class="header">
+		<h1>Buy Product</h1>
+	</div>
+	<center>
 		<form action="" th:action="@{/product/search}" method="post" class="searchInput">
-			<h1>Product Search :</h1>
 			<input type="text" name="productName" required placeholder="Please enter the Product Name....">
 			<button type="submit">SEARCH</button><br />
 			<smal style="color: red;" th:text="${message}"> </smal>
 		</form>
-		
+
 		<div th:if="${product!=null}" class="details">
 			<form action="" th:action="@{/product/order}" th:object="${product}" method="post">
 				ProductName :
@@ -99,34 +140,32 @@
 				Product Price :
 				<input type="text" value="" name="oPrice" th:value="${product.pprice}" readonly /><br />
 				Quqntity :
-				<input type="number" placeholder="Minimun: 1KG" min="1" name="oQuantity" /><br />
-
-				<button type="submit">Order_Now</button>
+				<input type="number" placeholder="Minimum: 1KG" min="1" name="oQuantity" /><br />
+				<button type="submit">Order Now</button>
 			</form>
 		</div>
-		
+
 		<div th:if="${orders!=null}" class="details">
 			<h2>Your Orders :</h2>
-			<table >
+			<table>
 				<tr>
-	
 					<th>Product_Name</th>
 					<th>Product_Price</th>
 					<th>Product_Quantity</th>
-					<th>Total_Ammount</th>
+					<th>Total_Amount</th>
 					<th>Date</th>
 				</tr>
 				<tr th:each="order :${orders}">
 					<td th:text="${order.oName}"></td>
 					<td th:text="${order.oPrice}"></td>
 					<td th:text="${order.oQuantity}"></td>
-					<td th:text="${order.totalAmmout}"></td>
+					<td th:text="${order.totalAmount}"></td>
 					<td th:text="${order.orderDate}"></td>
-
 				</tr>
 			</table>
 		</div>
 	</center>
+</div>
 </body>
 
 </html>

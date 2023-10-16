@@ -1,29 +1,105 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.com">
 
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<link rel="stylesheet" href="" th:href="@{/css/Add_Product.css}" />
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		a {
+			border: 1px solid var(--primary-color);
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: white;
+			font-family: sans-serif;
+			padding: 10px 20px;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		a:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+
+		.addProducts {
+			background-color: white;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		h3 {
+			font-weight: bolder;
+			color: var(--primary-color);
+		}
+
+		form {
+			margin-top: 20px;
+		}
+
+		input[type="text"],
+		textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		textarea {
+			resize: vertical;
+			height: 100px; /* You can adjust the height as needed */
+		}
+
+		button[type="submit"] {
+			background-color: var(--accent-color);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+	</style>
 </head>
 
 <body>
-	<a href="/services">Back to Services</a>
-	<div class="addProducts">
-		<h3 style="font-weight: bolder;color: seagreen;">ADD NEW PRODUCT :</h3>
-		<form action="" th:action="@{/addingProduct}" method="post">
-			Product_Name :
-			<input type="text" name="pname" value="" placeholder="Enter Product Name....." /> <br />
-			Product_Price :
-			<input type="text" name="pprice" placeholder="Enter Product Price...." /><br />
-			Product_Desc : <br />
-			<textarea name="pdescription" id="" cols="15" rows="1"
-				placeholder="Enter Product Description.."></textarea><br />
-
-			<button type="submit">Add_Product</button>
-
-		</form>
-	</div>
+<a href="/services">Back to Services</a>
+<div class="addProducts">
+	<h3 style="font-weight: bolder;">ADD NEW PRODUCT :</h3>
+	<form action="" th:action="@{/addingProduct}" method="post">
+		Product_Name :
+		<input type="text" name="pname" value="" placeholder="Enter Product Name....." /> <br />
+		Product_Price :
+		<input type="text" name="pprice" placeholder="Enter Product Price...." /><br />
+		Product_Desc : <br />
+		<textarea name="pdescription" id="" cols="30" rows="10"
+				  placeholder="Enter Product Description.."></textarea><br />
+		<button type="submit">Add_Product</button>
+	</form>
+</div>
 </body>
 
 </html>

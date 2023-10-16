@@ -1,27 +1,104 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<link rel="stylesheet" href="" th:href="@{/css/Update_Admin.css}" />
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		a {
+			border: 1px solid var(--primary-color);
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: white;
+			font-family: sans-serif;
+			padding: 10px 20px;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		a:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+
+		.updateAdmin {
+			background-color: white;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		h3 {
+			color: var(--primary-color);
+		}
+
+		form {
+			margin-top: 20px;
+		}
+
+		input[type="hidden"],
+		input[type="text"],
+		input[type="tel"],
+		input[type="email"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		button[type="submit"] {
+			background-color: var(--accent-color);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+	</style>
 </head>
+
 <body>
-		<a href="/services">Back to Services</a>
-	<div class="updateAdmin">
-				<h3 style="color: red;">UPDATE EXISTING ADMIN</h3>
-		<form action="" th:action="@{'/updatingAdmin/'+${admin.adminId}}" th:object="${admin}">
-			Admin_Id :
-			<input type="hidden" name="adminId" th:value="${admin.adminId}" th:text="${admin.adminId}"/><br />
-			Admin_Name :
-			<input type="text"  name="adminName"    th:value="${admin.adminName}"/><br />
-			Admin_Number :
-			<input type="tel"  name="adminNumber" th:value="${admin.adminNumber}" pattern="[0-9]{10}"/> <br />
-			Admin_Email :
-			<input type="email" name="adminEmail" th:value="${admin.adminEmail}" /> <br />
-			
-			<button type="submit">Update_Admin</button>
-			
-		</form>
-	</div>
+<a href="/services">Back to Services</a>
+<div class="updateAdmin">
+	<h3 style="color: red;">UPDATE EXISTING ADMIN</h3>
+	<form action="" th:action="@{'/updatingAdmin/'+${admin.adminId}}" th:object="${admin}">
+		Admin_Id :
+		<input type="hidden" name="adminId" th:value="${admin.adminId}" th:text="${admin.adminId}" /><br />
+		Admin_Name :
+		<input type="text" name="adminName" th:value="${admin.adminName}" /><br />
+		Admin_Number :
+		<input type="tel" name="adminNumber" th:value="${admin.adminNumber}" pattern="[0-9]{10}" /> <br />
+		Admin_Email :
+		<input type="email" name="adminEmail" th:value="${admin.adminEmail}" /> <br />
+
+		<button type="submit">Update_Admin</button>
+
+	</form>
+</div>
 </body>
+
 </html>

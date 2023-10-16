@@ -5,27 +5,106 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<link rel="stylesheet" href="" th:href="@{/css/Update_Product.css}" />
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		a {
+			border: 1px solid var(--primary-color);
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: white;
+			font-family: sans-serif;
+			padding: 10px 20px;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		a:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+
+		.updateProduct {
+			background-color: white;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		h3 {
+			font-weight: bolder;
+			color: var(--primary-color);
+		}
+
+		form {
+			margin-top: 20px;
+		}
+
+		input[type="hidden"],
+		input[type="text"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		textarea {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			resize: vertical;
+		}
+
+		button[type="submit"] {
+			background-color: var(--accent-color);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+	</style>
 </head>
 
 <body>
-		<a href="/services">Back_To_Services</a>
-	<div class="updateProduct">
-		<h3 style="font-weight: bolder;color: seagreen;">UPDATE EXISTING PRODUCT :</h3>
-		<form action="" th:action="@{'/updatingProduct/'+${product.pid}}" th:object="${product}">
-			Product_Id:
-			<input type="hidden" th:text="${product.pid}" th:value="${product.pid}" /><br />
-			Product_Name :
-			<input type="text" name="pname" th:value="${product.pname}" /> <br />
-			Product_Price :
-			<input type="text" name="pprice" th:value="${product.pprice}" /><br />
-			Product_Desc : <br />
-			<textarea name="pdescription" th:value="${product.pdescription}" id="" cols="10" rows="1">
-
-	</textarea><br />
-			<button type="submit">Update_Product</button>
-
-		</form>
-	</div>
+<a href="/services">Back to Services</a>
+<div class="updateProduct">
+	<h3 style="font-weight: bolder;">UPDATE EXISTING PRODUCT :</h3>
+	<form action="" th:action="@{'/updatingProduct/'+${product.pid}}" th:object="${product}">
+		Product_Id:
+		<input type="hidden" th:value="${product.pid}" /><br />
+		Product_Name :
+		<input type="text" name="pname" th:value="${product.pname}" /> <br />
+		Product_Price :
+		<input type="text" name="pprice" th:value="${product.pprice}" /><br />
+		Product_Desc : <br />
+		<textarea name="pdescription" id="" cols="30" rows="10" th:text="${product.pdescription}"></textarea><br />
+		<button type="submit">Update_Product</button>
+	</form>
+</div>
 </body>
 
 </html>

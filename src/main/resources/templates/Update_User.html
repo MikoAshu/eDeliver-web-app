@@ -1,26 +1,102 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>Admin : Update</title>
-		<link rel="stylesheet" href="" th:href="@{/css/Update_User.css}" />
+	<link rel="stylesheet" href="" th:href="@{/css/Update_User.css}" />
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		a {
+			border: 1px solid var(--primary-color);
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: white;
+			font-family: sans-serif;
+			padding: 10px 20px;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+
+		a:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+
+		.updateUser {
+			background-color: white;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		h3 {
+			color: var(--primary-color);
+		}
+
+		form {
+			margin-top: 20px;
+		}
+
+		input[type="hidden"],
+		input[type="text"],
+		input[type="email"],
+		input[type="tel"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+		}
+
+		button[type="submit"] {
+			background-color: var(--accent-color);
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+	</style>
 </head>
+
 <body>
-	<a href="/services"> Back to Services</a>
-	<div class="updateUser">
-		<h3 style="color: red;"> UPDATE EXISTING USER </h3>
-		<form  action=""  th:action="@{'/updatingUser/'+${user.u_id}}"    th:object="${user}">
-			User_Id :
-			<input  type="hidden" name="uid" th:value="${user.u_id}" th:text="${user.u_id}"/><br />
-			User_Name :
-			<input type="text" name="uname" th:value="${user.uname}"/>
-			User_Emai :
-			<input type="email" name="uemail" th:value="${user.uemail}"  />
-			User_Number :
-			<input type="tel" name="unumber" th:value="${user.unumber}" pattern="[0-9]{10}"/>
-			
+<a href="/services">Back to Services</a>
+<div class="updateUser">
+	<h3 style="color: red;">UPDATE EXISTING USER</h3>
+	<form action="" th:action="@{'/updatingUser/'+${user.u_id}}" th:object="${user}">
+		User_Id:
+		<input type="hidden" name="uid" th:value="${user.u_id}" /><br />
+		User_Name :
+		<input type="text" name="uname" th:value="${user.uname}" />
+		User_Email :
+		<input type="email" name="uemail" th:value="${user.uemail}" />
+		User_Number :
+		<input type="tel" name="unumber" th:value="${user.unumber}" pattern="[0-9]{10}" />
 		<button type="submit">Update_User</button>
-		</form>
-	</div>
+	</form>
+</div>
 </body>
+
 </html>

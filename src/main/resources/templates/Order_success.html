@@ -4,44 +4,62 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
+	<style>
+		:root {
+			--primary-color: #27374D;
+			--secondary-color: #526D82;
+			--accent-color: #9DB2BF;
+			--background-color: #DDE6ED;
+		}
+
+		body {
+			background-color: var(--background-color);
+			font-family: cursive;
+			font-size: 30px;
+			margin: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+		}
+
+		.text {
+			text-align: center;
+			height: max-content;
+			width: max-content;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		span,
+		h4 {
+			color: var(--primary-color);
+		}
+
+		a {
+			border: 1px solid var(--primary-color);
+			text-decoration: none;
+			background-color: var(--accent-color);
+			color: white;
+			font-family: sans-serif;
+			padding: 10px 20px;
+			border-radius: 5px;
+		}
+
+		a:hover {
+			background-color: darken(var(--accent-color), 10%);
+		}
+	</style>
 </head>
-<style>
-	body{
-		background-color:navajowhite;
-		font-family: cursive;
-		font-size: 30px;
-		
-	}
-	.text{
-		position: relative;
-		left: 250px;
-		top: 200px;
-		text-align: center;
-		height: max-content;
-		width: max-content;
-	}
-	span,h4
-	{
-		color: green;
-	}
-	a{
-		border: 1px solid black;
-		text-decoration: none;
-		background-color: darkgreen;
-		color: aliceblue;
-		font-family: sans-serif;
-		padding: 5px;
-	}
-	
-</style>
 
 <body>
-		<a href="/product/back" >Back</a>
-	<div class="text">
-		<h4>Ordered SuccessFully... !!!</h4>
-		<h3 style="font-family: sans-serif;">Your purchased amount is : <span th:text="'$ '+${amount}+'/-'"></span></h3>
-	</div>
-
+<a href="/product/back">Back</a>
+<div class="text">
+	<h4>Ordered Successfully... !!!</h4>
+	<h3>Your purchased amount is : <span th:text="'$ ' + ${amount} + '/-'"</span></h3>
+</div>
 </body>
 
 </html>

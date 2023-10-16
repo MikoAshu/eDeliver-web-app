@@ -1,74 +1,94 @@
-@charset "ISO-8859-1";
-
-body {
-	background-color: rgb(48, 47, 47);
-	background-size: inherit;
-	background-repeat: round;
+/* CSS Variables */
+:root {
+	--primary-color: #27374D;
+	--secondary-color: #526D82;
+	--accent-color: #9DB2BF;
+	--background-color: #DDE6ED;
 }
 
+/* Global Styles */
+body {
+	background-color: var(--background-color);
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+	color: var(--primary-color);
+}
+
+/* Header Styles */
+header {
+	background-color: var(--primary-color);
+	padding: 20px;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Back Button Styles */
+.back {
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+	border: 1px solid var(--primary-color);
+	background-color: var(--secondary-color);
+	border-radius: 4px;
+	position: fixed;
+	top: 20px;
+	left: 20px;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+.back:hover {
+	background-color: var(--primary-color);
+	color: white;
+}
+
+/* Tables Styles */
 div {
-	background-color: rgb(0, 0, 0);
+	background-color: var(--background-color);
 	margin-top: 10px;
 	padding-bottom: 20px;
 	padding-top: 20px;
-
-
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 table {
 	width: 700px;
 	padding: 5px;
 	border: none;
-	box-shadow: 5px 5px 10px green;
+	box-shadow: 5px 5px 10px #27374d3b;
 	margin-bottom: 40px;
 }
 
-
 td {
-
 	padding: 10px;
 	font-size: 18px;
 	font-weight: bold;
-	color:antiquewhite;
 }
 
 th {
 	padding: 12px;
-	background-color: green;
-	color:black;
+	background-color: var(--primary-color);
+	color: white;
 }
 
 h2 {
-	color: antiquewhite;
 	padding: 20px;
-
 }
 
 .btns {
-
-	border: 1px green solid;
+	border: 1px solid var(--secondary-color);
 	padding: 8px;
-	background-color: black;
+	background-color: var(--background-color);
 	text-decoration: none;
 	font-family: sans-serif;
 	font-weight: bold;
-	color: white;
-
+	box-shadow: 5px 5px 10px #27374d3b;
 }
 
 .btns:hover {
-	background-color: green;
-	transition: 1.3s;
-}
-
-.back {
-		width: max-content;
-	color: white;
-	text-decoration: none;
-	border: 1px black solid;
-	padding: 10px;
-	background-color: darkslategray;
-	
-	position: fixed;
-	
+	background-color: var(--secondary-color);
+	transition: background-color 1.3s;
 }
