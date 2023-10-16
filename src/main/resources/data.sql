@@ -20,3 +20,20 @@ values ('user@user.com', 'user', 1, 'user');
 
 insert into admin (admin_email, admin_name, admin_number, admin_password)
 values ('admin@admin.com', 'admin', '1', 'admin');
+
+insert into orders
+(o_id, o_name, o_price, o_quantity, order_date, total_ammout, user_u_id)
+values (1, 'Chicken Nuggets', 8.99, 1, '2020-12-12', 8.99, 1),
+       (2, 'Kebab', 9.99, 1, '2020-12-12', 9.99, 1),
+       (3, 'Pizza', 10.99, 1, '2020-12-12', 10.99, 1),
+       (4, 'Meatballs', 11.99, 1, '2020-12-12', 11.99, 1),
+       (5, 'Scrambled Eggs', 6.99, 1, '2020-12-12', 6.99, 1),
+       (6, 'Burrito', 7.49, 1, '2020-12-12', 7.49, 1),
+       (7, 'Sushi', 12.99, 1, '2020-12-12', 12.99, 1),
+       (8, 'Beef Stew', 13.99, 1, '2020-12-12', 13.99, 1),
+       (9, 'Ice Cream', 5.99, 1, '2020-12-12', 5.99, 1),
+       (10, 'Pasty', 8.49, 1, '2020-12-12', 8.49, 1),
+       (11, 'Chicken Tikka', 9.99, 1, '2020-12-12', 9.99, 1),
+       (12, 'Sesame Chicken', 10.49, 1, '2020-12-12', 10.49, 1),
+       (13, 'Lasagna', 11.49, 1, '2020-12-12', 11.49, 1),
+       (14, 'Snow Cone', 3.99, 1, '2020-12-12', 3.99, 1);
