@@ -29,12 +29,6 @@ public class HomeController
 		return "Products";
 	}
 
-	@GetMapping("/location")
-	public String location()
-	{
-		return "Locate_us";
-	}
-
 	@GetMapping("/about")
 	public String about()
 	{

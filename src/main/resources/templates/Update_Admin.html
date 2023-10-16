@@ -8,7 +8,7 @@
 <body>
 		<a href="/services">Back to Services</a>
 	<div class="updateAdmin">
-				<h3 style="color: red;">UPDATE EXISTING ADMIN / PARTNER DETAILS</h3>
+				<h3 style="color: red;">UPDATE EXISTING ADMIN</h3>
 		<form action="" th:action="@{'/updatingAdmin/'+${admin.adminId}}" th:object="${admin}">
 			Admin_Id :
 			<input type="hidden" name="adminId" th:value="${admin.adminId}" th:text="${admin.adminId}"/><br />
