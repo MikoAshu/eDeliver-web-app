@@ -84,8 +84,8 @@ public class AdminController {
 		Product product=this.productServices.getProductByName(name);
 		if(product==null)
 		{
-			model.addAttribute("message", "SORRY...!  Product Unavailable");
-			model.addAttribute("product", product);
+			List<Product>products=this.productServices.getAllProducts();
+			model.addAttribute("products", products);
 			List<Orders> orders = this.orderServices.getOrdersForUser(user);
 			model.addAttribute("orders", orders);
 			return "BuyProduct";
