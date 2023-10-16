@@ -58,7 +58,6 @@
 
 		input[type="hidden"],
 		input[type="text"] {
-			width: 100%;
 			padding: 10px;
 			margin-bottom: 10px;
 			border: 1px solid #ccc;
@@ -90,7 +89,7 @@
 </head>
 
 <body>
-<a href="/services">Back to Services</a>
+<a href="/admin/services">Back to Services</a>
 <div class="updateProduct">
 	<h3 style="font-weight: bolder;">UPDATE EXISTING PRODUCT :</h3>
 	<form action="" th:action="@{'/updatingProduct/'+${product.pid}}" th:object="${product}">
